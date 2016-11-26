@@ -7,7 +7,7 @@ The original data sets contained 561 processed features derived from the capture
 <h3>The Features of Interest: Means and Standard Deviations</h3>
 The feature names created by the original researchers are provided in "features.txt."  The mean and standard deviation features have original names with "-mean()" and "-std()" in their names. These are the variables which have been selected for the final data.  There are other feature names which include Mean, for example, Variable 294 is "fBodyAcc-meanFreq()-X" but I presume that this, and similarly named features, are not statistics of interest in this assignment.
 
-From the original data source, we learn that the features are derived from the the original time-series data (i.e., time domain) and from spectral (e.g., Fast Fourier Transform) data.  Subsets of each, time- and frequency-domain features are of the targeted types (mean and standard deviation).
+From the original data source, we learn that the features are derived from the the original time-series data (e.g. time domain) and from spectral (e.g. Fast Fourier Transform) data.  Subsets of each, time- and frequency-domain features are of the targeted types (mean and standard deviation).
 
 
 <h3>Renaming the Variables</h3>
@@ -16,9 +16,9 @@ A primary requirement for this project is to rename the features with a consiste
 As an example, the first variable was named "tBodyAcc-mean()-X".  This is a time-domain feature (indicated by the leading t).  "BodyAcc" means "Body Acceleration".  This is a *mean* statistic (indicated by "-mean()")
 derived from data along the X-axis.  
 
-I used a convention of "UpperCamel" and "period-separated" styles in renaming the variables. [For reference see this paper.](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf) 
+I used a mixed convention of "UpperCamel" and "period-separated" styles in renaming the variables. [For reference see this paper.](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf) 
 
-The first feature "tBodyAcc-mean()-X" was renamed to "timeD.BodyAcc.XAxis.Mean."  All of the new names end with either "Mean" or "StdDev."  Features specific to an axis include a sub-field of XAxis, YAxis, or ZAxis.  The type of feature (e.g. "BodyAcc") is in the second sub-field.  The first sub-field is either "timeD" or "freqD" for time and frequency domain respectively.
+The first feature "tBodyAcc-mean()-X" was renamed to "timeD.BodyAcc.XAxis.Mean."  All of the new names end with either "Mean" or "StdDev."  Features specific to an axis include a sub-field of X-Axis, Y-Axis, or Z-Axis.  The type of feature (e.g. "BodyAcc") is in the second sub-field.  The first sub-field is either "timeD" or "freqD" for time and frequency domain respectively.
 
 The abbreviated name-snippets are generally easily understood.  Above, "Acc" is interpreted as acceleration.  Similarly, "mag" is interpreted as magnitude.
 
@@ -30,10 +30,10 @@ I found that the original variable names from "features.txt" have a number of na
 
 The submitted processing script run_analysis.R is divided with comments into two main parts. 
 
- Part I focuses on processing the variable names used in the final tidy data sets.  The variable names from the original dataset are loaded from "features.txt".  An immediate conversion with dplyr:tbl\_df facilitates many of the operations made easy with the dplyr package.  A variable in the table "featuresNames_tbl" called "Keep" is a logical vector where I maintain a list of variables to be included in the final dataset.
- 
+ Part I focuses on processing the variable names used in the final tidy data sets.  The variable names from the original dataset are loaded from "features.txt".  An immediate conversion with `dplyr:tbl_df()` facilitates many of the operations made easy with the dplyr package.  A variable in the table "featuresNames_tbl" called "Keep" is a logical vector where I maintain a list of variables to be included in the final dataset.
+
  Keep is set to TRUE for original names matching "-mean()" or "-std()".
- 
+
 In utilizing the subject material, regular expression functions are used to improve the clarity and readability of the variable names.
  
  In Part II of run_analysis.R, the processing reads in the test and
@@ -57,12 +57,12 @@ In utilizing the subject material, regular expression functions are used to impr
  I convert the "activity" and "subjectID" variables from factors to character types to facilitate clean joining with the dplyr:union function.
  
  The final join operation gives the desired final table ("outputTable")
- which is saved as directed with write.table().
+ which is saved as directed with `write.table()`.
  The datafile is named "Req5TidyData.txt".
   
  For reference, this command will read the table into a dataframe
  called "data".
-	 data <- read.table("Req5TidyData.txt", header = TRUE) 
+	 `data <- read.table("Req5TidyData.txt", header = TRUE)` 
  
  
  
