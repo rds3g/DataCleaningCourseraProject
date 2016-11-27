@@ -14,10 +14,12 @@ From the original data source, we learn that the features are derived from the t
 <h3>Renaming the Variables</h3>
 A primary requirement for this project is to rename the features with a consistent, easy to understand convention amenable to further downstream R programming.  The new variable names, along with the original names, are provided in a separate markdown file "Codebook.md".
 
-As an example, the first variable was named "tBodyAcc-mean()-X".  This is a time-domain feature (indicated by the leading t).  "BodyAcc" means "Body Acceleration".  This is a *mean* statistic (indicated by "-mean()")
-derived from data along the X-axis.  
+As an example, the first variable was named "tBodyAcc-mean()-X".  This is a time-domain feature (indicated by the leading t).  "BodyAcc" means "Body Acceleration".  This is a *mean* statistic (indicated by "-mean()") derived from data along the X-axis.  
 
 I used a mixed convention of "UpperCamel" and "period-separated" styles in renaming the variables. [For reference see this paper.](https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf) 
+I think Professor Leek's preference is to not use period-seperated variable names.  Given my choice to bring in three or four pieces of information, I found that the use of period separators mixed with the "UpperCamel" convention improved readabilty.
+
+Some mention was made in class about not using capitalization in variable names.  I find this is not a major problem when using modern IDE environments like RStudio as the auto-expansion of variable names reduces the annoyance of including capitalization.
 
 The first feature "tBodyAcc-mean()-X" was renamed to "timeD.BodyAcc.XAxis.Mean."  All of the new names end with either "Mean" or "StdDev."  Features specific to an axis include a sub-field of X-Axis, Y-Axis, or Z-Axis.  The type of feature (e.g. "BodyAcc") is in the second sub-field.  The first sub-field is either "timeD" or "freqD" for time and frequency domain respectively.
 
@@ -29,33 +31,35 @@ I found that the original variable names from "features.txt" have a number of na
 
 <h2>How does the script work?</h2>
 
-The submitted processing script run_analysis.R is divided with comments into two main parts. 
+The submitted processing script run_analysis.R is divided, with comments,  into two main parts. 
 
  Part I focuses on processing the variable names used in the final tidy data sets.  The variable names from the original dataset are loaded from "features.txt".  An immediate conversion with `dplyr:tbl_df()` facilitates many of the operations made easy with the dplyr package.  A variable in the table "featuresNames_tbl" called "Keep" is a logical vector where I maintain a list of variables to be included in the final dataset.
 
- Keep is set to TRUE for original names matching "-mean()" or "-std()".
+ "Keep" is set to TRUE for original names matching "-mean()" or "-std()".
 
-In utilizing the subject material, regular expression functions are used to improve the clarity and readability of the variable names.
+In utilizing the subject material, regular expression functions (`grep(), sub()`) are used to transform and improve the clarity and readability of the variable names.
+
+The enhanced variable names are stored in the table as "enhancedDescriptors".
+
  
  In Part II of run_analysis.R, the processing reads in the test and
- training data from X\_test.txt and X\_train.txt, respectively.  The "X" data frames are subsetted down by the "keep" variable described above.
- A renaming operation replaces the variable names V1, V2, ...etc
+ training data from X\_test.txt and X\_train.txt, respectively.  The "X" data frames are subsetted down by the "keep" variable described above. A renaming operation replaces the variable names V1, V2, ...etc
  with the new enhanced names created in Part I.
  
- The Y data is read in next.  The two data files include a code 1-6 for the activity.  I don't make an immediate change to readable activity names. Instead, I made the "Y" vector a factor with levels encapsulating readable names for the activities.
+ The Y data, or activity data, is read in next.  The two data files, one each for training and test data, include a code ranging from 1 to 6 to
+ encode the activity for each observation. I don't make an immediate change to readable activity names. Instead, I converted the "Y" vector to type factor with levels encoding readable names for the activities.
+ Further discussion of how I met this requirement (3) is provided below.
  
  The subject data containing the ID of the test subject for each observation is read in.
  
- Several joining operations are made to create the intermediate data set.
- The cbind function is used to column-wise join the subjectID, the activity, and the feature statistics.  First, the TestData table is made followed by creation of the TrainData table.
+ Several joining operations are made to create  intermediate data tables. 
+ The cbind function is used to column-wise join the subjectID,  activity, and the feature statistics (stored in the *X* table).  First, the "TestData" table is synthesized followed by "TrainData" table.
  
- These tables, TestData and TrainData, are then combined to a final
- table "GalaxyPhoneWearableData" with the rbind function.
+ These tables, "TestData" and "TrainData", are then combined to a final table "GalaxyPhoneWearableData" with the `rbind()` function.
  
- Three different tables are then created by applying the desired groupings (by activity and subjectID, by activity only, and by subjectID
- only).
+ Three different tables are then created by applying the desired groupings (by "activity" and "subjectID", by "activity" only, and by "subjectID"  only).
  
- I convert the "activity" and "subjectID" variables from factors to character types to facilitate clean joining with the dplyr:union function.
+ I convert the "activity" and "subjectID" variables from factors to character types to facilitate clean joining with the `dplyr:union()` function.
  
  The final join operation gives the desired final table ("outputTable")
  which is saved as directed with `write.table()`.
