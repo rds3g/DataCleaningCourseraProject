@@ -25,6 +25,10 @@ library(dplyr)
 # Part I: Develop the Features (keep the mean, and std.dev. measures, create meaningful names for variables)
 ###########################################################################
 
+#setup a flag to indicate whether I should do intermediate saving to .RData files
+intermediateSaves = FALSE
+
+
 #set the top-Directory to where the script run_analysis.R is located
 topDir <- dirname(sys.frame(1)$ofile)
 
@@ -126,9 +130,11 @@ featuresNames_tbl$enhancedDescriptors[meanMatch_ii]<- paste(featuresNames_tbl$en
 stdMatch_ii = grep("-std[(][)]",featuresNames_tbl$enhancedDescriptors)
 featuresNames_tbl$enhancedDescriptors[stdMatch_ii]<-
   sub("-std[(][)]","",featuresNames_tbl$enhancedDescriptors[stdMatch_ii])
-featuresNames_tbl$enhancedDescriptors[stdMatch_ii]<- paste(featuresNames_tbl$enhancedDescriptors[stdMatch_ii],
-                                                           ".StdDev",sep="")
-save(featuresNames_tbl,file="featuresNames.RData")
+featuresNames_tbl$enhancedDescriptors[stdMatch_ii]<- paste(featuresNames_tbl$enhancedDescriptors[stdMatch_ii],  ".StdDev",sep="")
+
+if(intermediateSaves==TRUE){
+  save(featuresNames_tbl,file="featuresNames.RData")  
+}
 
 ################################################################################
 # Part II: Read and Merge the Data
@@ -198,10 +204,12 @@ GalaxyPhoneWearableData <- rbind(TestData, TrainData)
 #levels(subjectIDasFactor) <- c(levels(subjectIDasFactor),"Accross.All.Subjects")
 #levels(GalaxyPhoneWearableData$subjectID)<-levels(subjectIDasFactor)
 
-
+if(intermediateSaves==TRUE){
 save(GalaxyPhoneWearableData,file="GalaxyPhoneWearableData.RData")
+  
+}
 
-load("GalaxyPhoneWearableData.RData")
+#load("GalaxyPhoneWearableData.RData")
 
 #now create the second data set which summarizes the variables by activity and subject
 #SummarizedData <- summarise(group_by(GalaxyPhoneWearableData, activity, SubjectID), mean=mean(value))
@@ -258,7 +266,9 @@ outputData <- ungroup(outputData)
 outputData <- select(outputData, -TestPartialSum)
 outputData <- select(outputData, activity, subjectID, groupCount, meansSet, everything())
 
-save(outputData,file="Requirement5asTidyOutput.RData")
+if(intermediateSaves==TRUE){
+  save(outputData,file="Requirement5asTidyOutput.RData")
+}
 
 write.table(x=outputData,file="Req5TidyData.txt",row.names=FALSE)
 
@@ -267,10 +277,6 @@ data <- read.table("Req5TidyData.txt", header = TRUE)
 #if they used some other way of saving the file than a default write.table, this step will be different
 View(data)
 
-
-
-#save(MeansByActivityAndSubject,file="MeansByActivityAndSubject.RData")
-#write.table(x=MeansByActivityAndSubject  ,file="Req5TidyData.txt",row.names=FALSE)
 
 
 
