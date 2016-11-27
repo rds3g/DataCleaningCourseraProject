@@ -145,10 +145,10 @@ Here are details on how these requirements are met.
  
  It is preferred that tidy-data be captured in one table.  This was accomplished to meet requirement 5 so no linking variables between multiple tables are needed.  Furthermore, tidy-data should be represented in one table for type of observation.  In this case, the single type of observation is an aggregated mean calculation, all  captured in the one table.
  
- So in summary, my dataset is tidy in these ways:
-1. One table is used to represent one type of observation.
-2. Each row of the table represents a single observation.
-3. Each column of the table represents a single variable.
+So in summary, my dataset is tidy in these ways:
+* One table is used to represent one type of observation.
+* Each row of the table represents a single observation.
+* Each column of the table represents a single variable.
   
   
  
