@@ -1,6 +1,27 @@
 library(dplyr)
 
 ###########################################################################
+# run_analysis.R
+#
+# this is the master script for my Data Cleaning Course.
+#
+# Functionality is divided into two parts.
+# 
+# Part I works on building the variable names and analyzing which
+# variables are to be included in the the analysis (those representing means
+# and standard deviations)
+#
+# Part II does the work of merging and building the data tables, all the itermediate tables
+# as well as the final table submitted
+#
+# Cross-references in the readme.md file are listed in comments in this script.
+#
+# The codebook is in codebook.md
+#
+#############################################################################
+
+
+###########################################################################
 # Part I: Develop the Features (keep the mean, and std.dev. measures, create meaningful names for variables)
 ###########################################################################
 
@@ -12,6 +33,7 @@ if(dir.exists(topDir)){
 } else {
   print(paste("Was not successful in setting the top-Directory"))
   print(paste("You may need to set 'topDir' manually by uncommenting one of the following lines"))
+  stop("Sorry for the trouble please try to set topDir manually for this to run")
   #setwd("/full/path/to/top/directory")
   #setwd(".")
 }
@@ -112,6 +134,25 @@ save(featuresNames_tbl,file="featuresNames.RData")
 # Part II: Read and Merge the Data
 ################################################################################
 # # use read.table to read in the data
+
+if(!file.exists("X_test.txt")){
+  print("Data File X_test.txt could not be found in the top directory")
+  print("For this script to work, the data files like X_test.txt, X_train.txt, etc ")
+  print("Need to be copied to the working directory")
+  print(paste("The current working directory is ",getwd()))
+  stop("I ams sorry for the trouble...Please try to copy the data files to the directory where this script is running")
+}
+if(!file.exists("X_train.txt")){
+  print("Data File X_train.txt could not be found in the top directory")
+  print("For this script to work, the data files like X_test.txt, X_train.txt, etc ")
+  print("Need to be copied to the working directory")
+  print(paste("The current working directory is ",getwd()))
+  stop("I ams sorry for the trouble...Please try to copy the data files to the directory where this script is running")
+}
+#OK , if both X datasets have been found, the Y and subject data should be in working directory also
+
+
+
 XTest <-read.table("X_test.txt")
 XTrain <-read.table("X_train.txt")
 

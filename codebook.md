@@ -126,3 +126,75 @@ Many features are derived from one of the three orthoganal axes of the
 |freqD.BodyBodyGyroMag.StdDev     |Frequency   |Body Body Gyro Magnitude               |     |Std. Dev. |
 |freqD.BodyBodyGyroJerkMag.Mean   |Frequency   |Body Body Gyro Jerk Magnitude          |     |Mean      |
 |freqD.BodyBodyGyroJerkMag.StdDev |Frequency   |Body Body Gyro Jerk Magnitude          |     |Std. Dev. |
+
+<h2>Mapping Original Data Names to Enhanced Variable Names</h2>
+This table maps the names given in the original data to the names created in
+this project.
+
+|V1  |origDescriptors             |enhancedDescriptors              |
+|:---|:---------------------------|:--------------------------------|
+|1   |tBodyAcc-mean()-X           |timeD.BodyAcc.XAxis.Mean         |
+|2   |tBodyAcc-mean()-Y           |timeD.BodyAcc.YAxis.Mean         |
+|3   |tBodyAcc-mean()-Z           |timeD.BodyAcc.ZAxis.Mean         |
+|4   |tBodyAcc-std()-X            |timeD.BodyAcc.XAxis.StdDev       |
+|5   |tBodyAcc-std()-Y            |timeD.BodyAcc.YAxis.StdDev       |
+|6   |tBodyAcc-std()-Z            |timeD.BodyAcc.ZAxis.StdDev       |
+|41  |tGravityAcc-mean()-X        |timeD.GravityAcc.XAxis.Mean      |
+|42  |tGravityAcc-mean()-Y        |timeD.GravityAcc.YAxis.Mean      |
+|43  |tGravityAcc-mean()-Z        |timeD.GravityAcc.ZAxis.Mean      |
+|44  |tGravityAcc-std()-X         |timeD.GravityAcc.XAxis.StdDev    |
+|45  |tGravityAcc-std()-Y         |timeD.GravityAcc.YAxis.StdDev    |
+|46  |tGravityAcc-std()-Z         |timeD.GravityAcc.ZAxis.StdDev    |
+|81  |tBodyAccJerk-mean()-X       |timeD.BodyAccJerk.XAxis.Mean     |
+|82  |tBodyAccJerk-mean()-Y       |timeD.BodyAccJerk.YAxis.Mean     |
+|83  |tBodyAccJerk-mean()-Z       |timeD.BodyAccJerk.ZAxis.Mean     |
+|84  |tBodyAccJerk-std()-X        |timeD.BodyAccJerk.XAxis.StdDev   |
+|85  |tBodyAccJerk-std()-Y        |timeD.BodyAccJerk.YAxis.StdDev   |
+|86  |tBodyAccJerk-std()-Z        |timeD.BodyAccJerk.ZAxis.StdDev   |
+|121 |tBodyGyro-mean()-X          |timeD.BodyGyro.XAxis.Mean        |
+|122 |tBodyGyro-mean()-Y          |timeD.BodyGyro.YAxis.Mean        |
+|123 |tBodyGyro-mean()-Z          |timeD.BodyGyro.ZAxis.Mean        |
+|124 |tBodyGyro-std()-X           |timeD.BodyGyro.XAxis.StdDev      |
+|125 |tBodyGyro-std()-Y           |timeD.BodyGyro.YAxis.StdDev      |
+|126 |tBodyGyro-std()-Z           |timeD.BodyGyro.ZAxis.StdDev      |
+|161 |tBodyGyroJerk-mean()-X      |timeD.BodyGyroJerk.XAxis.Mean    |
+|162 |tBodyGyroJerk-mean()-Y      |timeD.BodyGyroJerk.YAxis.Mean    |
+|163 |tBodyGyroJerk-mean()-Z      |timeD.BodyGyroJerk.ZAxis.Mean    |
+|164 |tBodyGyroJerk-std()-X       |timeD.BodyGyroJerk.XAxis.StdDev  |
+|165 |tBodyGyroJerk-std()-Y       |timeD.BodyGyroJerk.YAxis.StdDev  |
+|166 |tBodyGyroJerk-std()-Z       |timeD.BodyGyroJerk.ZAxis.StdDev  |
+|201 |tBodyAccMag-mean()          |timeD.BodyAccMag.Mean            |
+|202 |tBodyAccMag-std()           |timeD.BodyAccMag.StdDev          |
+|214 |tGravityAccMag-mean()       |timeD.GravityAccMag.Mean         |
+|215 |tGravityAccMag-std()        |timeD.GravityAccMag.StdDev       |
+|227 |tBodyAccJerkMag-mean()      |timeD.BodyAccJerkMag.Mean        |
+|228 |tBodyAccJerkMag-std()       |timeD.BodyAccJerkMag.StdDev      |
+|240 |tBodyGyroMag-mean()         |timeD.BodyGyroMag.Mean           |
+|241 |tBodyGyroMag-std()          |timeD.BodyGyroMag.StdDev         |
+|253 |tBodyGyroJerkMag-mean()     |timeD.BodyGyroJerkMag.Mean       |
+|254 |tBodyGyroJerkMag-std()      |timeD.BodyGyroJerkMag.StdDev     |
+|266 |fBodyAcc-mean()-X           |freqD.BodyAcc.XAxis.Mean         |
+|267 |fBodyAcc-mean()-Y           |freqD.BodyAcc.YAxis.Mean         |
+|268 |fBodyAcc-mean()-Z           |freqD.BodyAcc.ZAxis.Mean         |
+|269 |fBodyAcc-std()-X            |freqD.BodyAcc.XAxis.StdDev       |
+|270 |fBodyAcc-std()-Y            |freqD.BodyAcc.YAxis.StdDev       |
+|271 |fBodyAcc-std()-Z            |freqD.BodyAcc.ZAxis.StdDev       |
+|345 |fBodyAccJerk-mean()-X       |freqD.BodyAccJerk.XAxis.Mean     |
+|346 |fBodyAccJerk-mean()-Y       |freqD.BodyAccJerk.YAxis.Mean     |
+|347 |fBodyAccJerk-mean()-Z       |freqD.BodyAccJerk.ZAxis.Mean     |
+|348 |fBodyAccJerk-std()-X        |freqD.BodyAccJerk.XAxis.StdDev   |
+|349 |fBodyAccJerk-std()-Y        |freqD.BodyAccJerk.YAxis.StdDev   |
+|350 |fBodyAccJerk-std()-Z        |freqD.BodyAccJerk.ZAxis.StdDev   |
+|424 |fBodyGyro-mean()-X          |freqD.BodyGyro.XAxis.Mean        |
+|425 |fBodyGyro-mean()-Y          |freqD.BodyGyro.YAxis.Mean        |
+|426 |fBodyGyro-mean()-Z          |freqD.BodyGyro.ZAxis.Mean        |
+|427 |fBodyGyro-std()-X           |freqD.BodyGyro.XAxis.StdDev      |
+|428 |fBodyGyro-std()-Y           |freqD.BodyGyro.YAxis.StdDev      |
+|429 |fBodyGyro-std()-Z           |freqD.BodyGyro.ZAxis.StdDev      |
+|503 |fBodyAccMag-mean()          |freqD.BodyAccMag.Mean            |
+|504 |fBodyAccMag-std()           |freqD.BodyAccMag.StdDev          |
+|516 |fBodyBodyAccJerkMag-mean()  |freqD.BodyBodyAccJerkMag.Mean    |
+|517 |fBodyBodyAccJerkMag-std()   |freqD.BodyBodyAccJerkMag.StdDev  |
+|529 |fBodyBodyGyroMag-mean()     |freqD.BodyBodyGyroMag.Mean       |
+|530 |fBodyBodyGyroMag-std()      |freqD.BodyBodyGyroMag.StdDev     |
+|542 |fBodyBodyGyroJerkMag-mean() |freqD.BodyBodyGyroJerkMag.Mean   |
