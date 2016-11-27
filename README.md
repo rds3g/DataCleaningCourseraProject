@@ -1,3 +1,4 @@
+
 <h1> Getting and Cleaning Data Course Project</h1>
 
 <h3>Important Note for running run_analysis.R</h3>
