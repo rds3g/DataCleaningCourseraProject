@@ -1,5 +1,13 @@
 <h1> Getting and Cleaning Data Course Project</h1>
 
+<h3>Important Note for running run_analysis.R</h3>
+A required submission for this project is run_analysis.R.  This is the main script, and the main focus of this README.md.
+It is not clear before submitting whether you the grader will need to run this script.  If running run_analysis.R is necessary, the underlying raw data files will need to be in the working directory to which my run_analysis.R script is placed after downloading from my github repository.  
+
+I developed run_analysis.R with RStudio in a linux environment.  The script tries to set the working directory to be the
+directory where the downloaded run_analysis.R is stored.  There is a chance of platform compatibility introducing problems here as I have not tested on other platforms like the MAC or windows.  If you have problems running, please try setting the topDir to be the working directory where the script run_analysis.R is stored.  The working data sets (X_test.txt, X_train.txt) need to be in this directory also.
+
+
 <h3> Recap of the Original Data Set</h3>
 
 The original data sets contained 561 processed features derived from the captured accelerometer and gyro data.  The targeted subset of data were the features calculated with  *mean* and *standard deviation* statistics.
