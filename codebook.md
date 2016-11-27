@@ -131,7 +131,7 @@ Many features are derived from one of the three orthoganal axes of the
 This table maps the names given in the original data to the names created in
 this project.
 
-|V1  |origDescriptors             |enhancedDescriptors              |
+|V1  |origDescriptors             | Variable Name                   |
 |:---|:---------------------------|:--------------------------------|
 |1   |tBodyAcc-mean()-X           |timeD.BodyAcc.XAxis.Mean         |
 |2   |tBodyAcc-mean()-Y           |timeD.BodyAcc.YAxis.Mean         |
