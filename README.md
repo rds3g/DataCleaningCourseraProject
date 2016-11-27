@@ -76,22 +76,22 @@ The enhanced variable names are stored in the table as "enhancedDescriptors".
 Several Requirements are Described in the Project Instructions.
 Here are details on how these requirements are met.
 
- 1. **Merges the Training and Data Set **
+ 1.**Merges the Training and Data Set **
       * The outline of how the merging of the training and dataset are given above.  The script run_analysis.R also provides comments along the way.
- 2. **Extracts only the measurements on the mean and standard deviation for each measurement.**
+ 2.**Extracts only the measurements on the mean and standard deviation for each measurement.**
      * I chose to include the mean and standard deviations marked in the original naming scheme with -mean() and -std()
      * The grep operations are found near comment "# Note Requirement 2a:  in run_analysis.R.
- 3. **Uses descriptive activity names to name the activities in the data set.**
+ 3.**Uses descriptive activity names to name the activities in the data set.**
      * Using R-functions discussed in lectures, I enhanced the readability of the variable names.  See comment "# Note Requirement 3" in run_analysis.R.
      * For example, I replace the simple leading "f" or "t" with "freqD" and "timeD" respectively.
      * The original naming convention included "-" in the name; this can cause problems in scripting languages.  The mean and standard deviation markers where attached at the end of the variable name.
      * I chose to use a hybrid of "UpperCamel" and period-separated conventions in my variable naming.  For reference, see [this paper.]
      (https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf) 
      * In lecture, Professor Leek expressed his preference for lowercase variable names.  I personally use the UpperCamel syntax in other environments so I find it easy to use.  I also tend to use longer variable names as modern IDE environments like RStudio tend to reduce the typing load by expanding out previously defined variables.  
-  4. ** Appropriately labels the data set with descriptive variable names.**
+ 4.** Appropriately labels the data set with descriptive variable names.**
       * The default variable names were replaced with the enhanced variable names.  See comment "# Note Requirement 4" in run_analysis.R to see how this was done.
       * The enhanced variable names are described in the codebook.
-   5. **From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
+ 5.**From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
        * The gist of the problem!
        * The following section in this Readme.md discusses how the submitted dataset meets the Tidy Requirement.
        
