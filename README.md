@@ -1,7 +1,5 @@
 <h1> Getting and Cleaning Data Course Project</h1>
 
-another note, remove later
-
 <h3>Important Note for running run_analysis.R</h3>
 A required submission for this project is run_analysis.R.  This is the main script, and the main focus of this README.md.
 It is not clear before submitting whether you the grader will need to run this script.  If running run_analysis.R is necessary, the underlying raw data files will need to be in the working directory to which my run_analysis.R script is placed after downloading from my github repository.  
