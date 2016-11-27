@@ -13,7 +13,6 @@ directory where the downloaded run_analysis.R is stored.  There is a chance of p
 You may be required to open the tidy data file for grading.  As specified, this in a text file format.
 The following command run in R will load the data file for inspection.
     `data <- read.table("Req5TidyData.txt", header = TRUE) `
-<h3> Recap of the Original Data Set</h3>
 
 
 <h3> Recap of the Original Data Set</h3>
