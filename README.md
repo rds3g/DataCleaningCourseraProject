@@ -76,22 +76,22 @@ The enhanced variable names are stored in the table as "enhancedDescriptors".
 Several Requirements are Described in the Project Instructions.
 Here are details on how these requirements are met.
 
- 1.**Merges the Training and Data Set **
+ 1. **Merges the Training and Data Set **
       * The outline of how the merging of the training and dataset are given above.  The script run_analysis.R also provides comments along the way.
- 2.**Extracts only the measurements on the mean and standard deviation for each measurement.**
+2. **Extracts only the measurements on the mean and standard deviation for each measurement.**
      * I chose to include the mean and standard deviations marked in the original naming scheme with -mean() and -std()
      * The grep operations are found near comment "# Note Requirement 2a:  in run_analysis.R.
- 3.**Uses descriptive activity names to name the activities in the data set.**
+ 3. **Uses descriptive activity names to name the activities in the data set.**
      * Using R-functions discussed in lectures, I enhanced the readability of the variable names.  See comment "# Note Requirement 3" in run_analysis.R.
      * For example, I replace the simple leading "f" or "t" with "freqD" and "timeD" respectively.
      * The original naming convention included "-" in the name; this can cause problems in scripting languages.  The mean and standard deviation markers where attached at the end of the variable name.
      * I chose to use a hybrid of "UpperCamel" and period-separated conventions in my variable naming.  For reference, see [this paper.]
      (https://journal.r-project.org/archive/2012-2/RJournal_2012-2_Baaaath.pdf) 
      * In lecture, Professor Leek expressed his preference for lowercase variable names.  I personally use the UpperCamel syntax in other environments so I find it easy to use.  I also tend to use longer variable names as modern IDE environments like RStudio tend to reduce the typing load by expanding out previously defined variables.  
- 4.** Appropriately labels the data set with descriptive variable names.**
+4. ** Appropriately labels the data set with descriptive variable names.**
       * The default variable names were replaced with the enhanced variable names.  See comment "# Note Requirement 4" in run_analysis.R to see how this was done.
       * The enhanced variable names are described in the codebook.
- 5.**From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
+ 5. **From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.**
        * The gist of the problem!
        * The following section in this Readme.md discusses how the submitted dataset meets the Tidy Requirement.
        
@@ -99,7 +99,7 @@ Here are details on how these requirements are met.
        
    To recap, the dataset submitted from the final step contains mean values calculated from subsets of the data, with some of the features themselves calculated means.
    
-  My original interpretation was to subset, or group, the data so that each subset grouped the observations for each subject performing each activity.  This would give 180 observations, 30 subjects times 6 activities.  
+  My original interpretation was to subset, or group, the data so that each subset grouped the observations for each subject performing each activity.  This would give 180 observations (or rows in the final table), 30 subjects times 6 activities.  
   
  Further reading on the discussion board indicates that the marginal statistics may also be of interest.  For example, how does the mean of a particular measure average out for a specific subject across all six activities.  This type of aggregation would give 30 observations (one for each subject).
  
@@ -111,26 +111,24 @@ Here are details on how these requirements are met.
  
  My approach is to keep the "activity"  and "subjectID" variables along with variables of interest.  
  
- I add a level to each variable "activity" and "subjectID".  So "activity" can represent an activity like "Walking.Normal"  when grouping is by
- activity-subjectID or "activity" can be "Across.All.Activities" when grouping is done more granularly by "subjectID" only.
+ I add a level to each variable "activity" and "subjectID".  So "activity" could be encodeded as "Walking.Normal" or "Walking.Upstairs" when focused on a specific activity.  However, when focused on all activities for a specified subject, the encoding for activity would be "Across.All.Activities" indicating for a specific subject we are averaging the means for all activities.
  
  Similarly,  the "subjectID" can take on a value of "Across.All.Subjects" when grouping is done by "activity" only.
  
  Now back to the question of whether the dataset is Tidy. One requirement of a Tidy-dataset is that "each row of the data represents a single observation."
  
- With my approach, each row, or observation, is specific to aggregation done in two-dimensions.
+ With my approach, each row, or observation, is specific to aggregation operated on in two-dimensions.
  
  For an analogy, consider that one or both eyes are used for observing.  Say the right eye distinctishes "Subjects" and left distinquishes "Activities".  Observing with both eyes allows discerning
-( and grouping ) by both activity and subject.  Observing with the right eye allows for grouping by subject (with activities blurred or averaged out) while obsering with the left eye allows grouping by activity only (with the subjects blurred or averaged out).
+( and grouping or aggregating ) by both activity and subject.  Observing with the right eye allows for grouping by subject (with activities blurred or averaged out) while obsering with the left eye allows grouping by activity only (with the subjects blurred or averaged out).
  
- Looking at the data with "both eyes", "right eye only", or "left eye only" all produce  valid "observations"!
+ Looking at the data with "both eyes", "right eye only", or "left eye only" all produce  valid *observations*!
  
  So, each row of the dataset contains a unique observation into aggregated means but the level of aggregation in the two dimensions of activity and subject varies for each row.
  
- Another requirement is that each column represents only one variable.  A big focus in this project was to produce great names for the
- variables of interest.  In this case, the targeted variables (mean and standard deviation) measures carry over on a one-to-one basis with my approach of aggregating.  No other variables were created (other than two variables added to help in sorting and data validation; see my codebook).
+ Another requirement is that each column represents only one variable.  A primary focus in this project was to create a better naming convention for the variables of interest.  In this case, the targeted variables (mean and standard deviation) measures carry over on a one-to-one basis from the intermediate table created in Steps 1 through 4 to the submitted table produced for Step 5.  No other variables were created (other than two variables added to help in sorting and data validation; see my codebook).
  
- It is preferred that tidy-data be captured in one table.  This was done so no linking variables between multiple tables are needed.  Furthermore, tidy-data should be represented in one table for type of observation.  In this case, the single type of observation is an aggregated mean calculation, all  captured in one table!
+ It is preferred that tidy-data be captured in one table.  This was accomplished to meet requirement 5 so no linking variables between multiple tables are needed.  Furthermore, tidy-data should be represented in one table for type of observation.  In this case, the single type of observation is an aggregated mean calculation, all  captured in the one table.
  
  So in summary, my dataset is tidy in these ways:
   1. One table is used to represent one type of observation.
