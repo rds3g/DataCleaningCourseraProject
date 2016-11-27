@@ -9,6 +9,13 @@ I developed run_analysis.R with RStudio in a linux environment.  The script trie
 directory where the downloaded run_analysis.R is stored.  There is a chance of platform compatibility introducing problems here as I have not tested on other platforms like the MAC or windows.  If you have problems running, please try setting the topDir to be the working directory where the script run_analysis.R is stored.  The working data sets (X_test.txt, X_train.txt) need to be in this directory also.
 
 
+<h3> Important Note for Loading the Tidy Data Set </h3>
+You may be required to open the tidy data file for grading.  As specified, this in a text file format.
+The following command run in R will load the data file for inspection.
+    `data <- read.table("Req5TidyData.txt", header = TRUE) `
+<h3> Recap of the Original Data Set</h3>
+
+
 <h3> Recap of the Original Data Set</h3>
 
 The original data sets contained 561 processed features derived from the captured accelerometer and gyro data.  The targeted subset of data were the features calculated with  *mean* and *standard deviation* statistics.
