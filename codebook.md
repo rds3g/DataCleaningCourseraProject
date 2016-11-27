@@ -36,10 +36,10 @@ of the statistics from the raw time-domain data.  I did consider transforming th
 <h3> The Aggregation Variables </h3>
 |Variable Name    |Purpose    |
 |:------------------------|:----------------------------|
-|activity                |Lists the type of activity ("Lying","Sitting","Standing","Walking.Normal","Walking.Upstairs","Walking.Downstairs") or when aggregation spansl all activities, the activity="Across.All.Activities"
+|activity                |Lists the type of activity ("Lying","Sitting","Standing","Walking.Normal","Walking.Upstairs","Walking.Downstairs") or when aggregation spans all activities, the activity="Across.All.Activities"|
 |subjectID          | the ID of the subject performing the activity ("1","2", ...,"30")  or when aggregation spans all subjects, subjectID="Across.All.Subjects" |
 |groupCount     | the number of observations aggregated into the specified activity-subjectID observation of mean|
-|meansSet | this has one of the following three values; "ByActivityAndSubject","ByActivityForAllSubjects","BySubjectForAllActiviities"; see the notes immediately below.
+|meansSet | this has one of the following three values; "ByActivityAndSubject","ByActivityForAllSubjects","BySubjectForAllActiviities" 
 
 <h3>Feature Variables with Expanded Descriptions</h3>
 

@@ -1,10 +1,11 @@
 <h1> Getting and Cleaning Data Course Project</h1>
 
-<h2> Recap of the Original Data Set</h2>
+<h3> Recap of the Original Data Set</h3>
 
 The original data sets contained 561 processed features derived from the captured accelerometer and gyro data.  The targeted subset of data were the features calculated with  *mean* and *standard deviation* statistics.
 
 <h3>The Features of Interest: Means and Standard Deviations</h3>
+
 The feature names created by the original researchers are provided in "features.txt."  The mean and standard deviation features have original names with "-mean()" and "-std()" in their names. These are the variables which have been selected for the final data.  There are other feature names which include Mean, for example, Variable 294 is "fBodyAcc-meanFreq()-X" but I presume that this, and similarly named features, are not statistics of interest in this assignment.
 
 From the original data source, we learn that the features are derived from the the original time-series data (e.g. time domain) and from spectral (e.g. Fast Fourier Transform) data.  Subsets of each, time- and frequency-domain features are of the targeted types (mean and standard deviation).
